@@ -31,7 +31,7 @@ public class PunishListener implements Listener {
                         break;
 
                     case 13: // MUTE
-
+                        InventoryUtils.mute((Player) e.getWhoClicked());
                         break;
 
                     case 14: // KICK
