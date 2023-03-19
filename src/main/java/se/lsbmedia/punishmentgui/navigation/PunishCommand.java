@@ -13,6 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import se.lsbmedia.punishmentgui.Main;
 
 import java.util.Arrays;
+import java.util.UUID;
 
 public class PunishCommand implements CommandExecutor {
 
@@ -22,71 +23,82 @@ public class PunishCommand implements CommandExecutor {
         this.main = main;
     }
 
+                //              /punish <player>
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (player.hasPermission("punish.use")) {
+                if (args.length == 1) {
+                    if (Bukkit.getPlayer(args[0]) != null) {
 
-                Inventory inv = Bukkit.createInventory(player, 27, ChatColor.AQUA.toString() + ChatColor.BOLD + "PunishmentGUI");
+                        Player target = Bukkit.getPlayer(args[0]);
 
-                // IP-BAN
-                ItemStack ipban = new ItemStack(Material.RED_CANDLE);
-                ItemMeta ipbanMeta = ipban.getItemMeta();
-                ipbanMeta.setDisplayName(ChatColor.DARK_RED + "IP-BAN");
-                ipbanMeta.setLore(Arrays.asList(ChatColor.GRAY + "Permanently ip-ban a player!"));
-                ipban.setItemMeta(ipbanMeta);
+                        Inventory inv = Bukkit.createInventory(player, 27, ChatColor.AQUA.toString() + ChatColor.BOLD + "PunishmentGUI");
 
-                inv.setItem(10, ipban);
+                        // IP-BAN
+                        ItemStack ipban = new ItemStack(Material.RED_CANDLE);
+                        ItemMeta ipbanMeta = ipban.getItemMeta();
+                        ipbanMeta.setDisplayName(ChatColor.DARK_RED + "IP-BAN");
+                        ipbanMeta.setLore(Arrays.asList(ChatColor.GRAY + "Permanently ip-ban a player!"));
+                        ipban.setItemMeta(ipbanMeta);
 
-                // BAN
-                ItemStack ban = new ItemStack(Material.ORANGE_CANDLE);
-                ItemMeta banMeta = ban.getItemMeta();
-                banMeta.setDisplayName(ChatColor.GOLD + "BAN");
-                banMeta.setLore(Arrays.asList(ChatColor.GRAY + "Temporarily ban a player!"));
-                ban.setItemMeta(banMeta);
+                        inv.setItem(10, ipban);
 
-                inv.setItem(12, ban);
+                        // BAN
+                        ItemStack ban = new ItemStack(Material.ORANGE_CANDLE);
+                        ItemMeta banMeta = ban.getItemMeta();
+                        banMeta.setDisplayName(ChatColor.GOLD + "BAN");
+                        banMeta.setLore(Arrays.asList(ChatColor.GRAY + "Temporarily ban a player!"));
+                        ban.setItemMeta(banMeta);
 
-                // MUTE
-                ItemStack mute = new ItemStack(Material.YELLOW_CANDLE);
-                ItemMeta muteMeta = mute.getItemMeta();
-                muteMeta.setDisplayName(ChatColor.YELLOW + "MUTE");
-                muteMeta.setLore(Arrays.asList(ChatColor.GRAY + "Mute a player," + ChatColor.GRAY + " either temporarily or permanently!"));
-                mute.setItemMeta(muteMeta);
+                        inv.setItem(12, ban);
 
-                inv.setItem(13, mute);
+                        // MUTE
+                        ItemStack mute = new ItemStack(Material.YELLOW_CANDLE);
+                        ItemMeta muteMeta = mute.getItemMeta();
+                        muteMeta.setDisplayName(ChatColor.YELLOW + "MUTE");
+                        muteMeta.setLore(Arrays.asList(ChatColor.GRAY + "Mute a player," + ChatColor.GRAY + " either temporarily or permanently!"));
+                        mute.setItemMeta(muteMeta);
 
-                // KICK
-                ItemStack kick = new ItemStack(Material.CANDLE);
-                ItemMeta kickMeta = kick.getItemMeta();
-                kickMeta.setDisplayName(ChatColor.WHITE + "KICK");
-                kickMeta.setLore(Arrays.asList(ChatColor.GRAY + "Kick a player!"));
-                kick.setItemMeta(kickMeta);
+                        inv.setItem(13, mute);
 
-                inv.setItem(14, kick);
+                        // KICK
+                        ItemStack kick = new ItemStack(Material.CANDLE);
+                        ItemMeta kickMeta = kick.getItemMeta();
+                        kickMeta.setDisplayName(ChatColor.WHITE + "KICK");
+                        kickMeta.setLore(Arrays.asList(ChatColor.GRAY + "Kick a player!"));
+                        kick.setItemMeta(kickMeta);
 
-                // UNBAN
-                ItemStack unban = new ItemStack(Material.LIME_CANDLE);
-                ItemMeta unbanMeta = unban.getItemMeta();
-                unbanMeta.setDisplayName(ChatColor.GREEN + "UNBAN");
-                unbanMeta.setLore(Arrays.asList(ChatColor.GRAY + "Unban a player!"));
-                unban.setItemMeta(unbanMeta);
+                        inv.setItem(14, kick);
 
-                inv.setItem(16, unban);
+                        // UNBAN
+                        ItemStack unban = new ItemStack(Material.LIME_CANDLE);
+                        ItemMeta unbanMeta = unban.getItemMeta();
+                        unbanMeta.setDisplayName(ChatColor.GREEN + "UNBAN");
+                        unbanMeta.setLore(Arrays.asList(ChatColor.GRAY + "Unban a player!"));
+                        unban.setItemMeta(unbanMeta);
 
-                // CLOSE
-                ItemStack close = new ItemStack(Material.RED_DYE);
-                ItemMeta closeMeta = close.getItemMeta();
-                closeMeta.setDisplayName(ChatColor.DARK_RED + "close");
-                close.setItemMeta(closeMeta);
+                        inv.setItem(16, unban);
 
-                inv.setItem(26, close);
+                        // CLOSE
+                        ItemStack close = new ItemStack(Material.RED_DYE);
+                        ItemMeta closeMeta = close.getItemMeta();
+                        closeMeta.setDisplayName(ChatColor.DARK_RED + "close");
+                        close.setItemMeta(closeMeta);
+
+                        inv.setItem(26, close);
 
 
-                player.openInventory(inv);
-
+                        player.openInventory(inv);
+                    } else {
+                        player.sendMessage(ChatColor.RED + "This player is not online!");
+                    }
+                } else {
+                    player.sendMessage(ChatColor.RED + "Invalid usage!" + "\n" + ChatColor.GRAY + "Correct usage: /punish <player>");
+                }
             } else {
                 player.sendMessage(ChatColor.RED + "No permission.");
             }
