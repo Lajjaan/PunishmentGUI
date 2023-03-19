@@ -12,7 +12,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import se.lsbmedia.punishmentgui.Main;
 
+import java.lang.annotation.Target;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.UUID;
 
 public class PunishCommand implements CommandExecutor {
@@ -25,6 +27,7 @@ public class PunishCommand implements CommandExecutor {
 
                 //              /punish <player>
 
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
@@ -32,9 +35,11 @@ public class PunishCommand implements CommandExecutor {
             Player player = (Player) sender;
             if (player.hasPermission("punish.use")) {
                 if (args.length == 1) {
+                    Player target = Bukkit.getPlayer(args[0]);
                     if (Bukkit.getPlayer(args[0]) != null) {
 
-                        Player target = Bukkit.getPlayer(args[0]);
+                        PunishGUI gui = new PunishGUI((Player) target, (Player) sender);
+                        gui.showPunisher();
 
                         Inventory inv = Bukkit.createInventory(player, 27, ChatColor.AQUA.toString() + ChatColor.BOLD + "PunishmentGUI");
 

@@ -6,66 +6,81 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
 import se.lsbmedia.punishmentgui.Main;
 
 import java.util.HashMap;
+import java.util.UUID;
 
 public class PunishListener implements Listener {
+
+    private Main main;
+
+    public PunishListener(Main main) {
+        this.main = main;
+    }
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
 
-        e.getInventory();
-        if (e.getCurrentItem() != null) {
-            if (e.getView().getTitle().endsWith("PunishmentGUI")) {
-                e.setCancelled(true);
+        Inventory inv = e.getClickedInventory();
+        if (inv == null) return;
+        InventoryHolder holder = inv.getHolder();
+        if (holder instanceof PunishGUI) {
+            e.getInventory();
+            if (e.getCurrentItem() != null) {
+                if (e.getView().getTitle().endsWith("PunishmentGUI")) {
+                    e.setCancelled(true);
 
-                Player player = (Player) e.getWhoClicked();
+                    Player player = (Player) e.getWhoClicked();
 
-                switch (e.getRawSlot()) {
-                    case 10: // IP-BAN
-                        InventoryUtils.ipBan((Player) e.getWhoClicked());
-                        break;
-                    case 12: // BAN
-                        InventoryUtils.ban((Player) e.getWhoClicked());
-                        break;
+                    switch (e.getRawSlot()) {
+                        case 10: // IP-BAN
+                            InventoryUtils.ipBan((Player) e.getWhoClicked());
+                            break;
+                        case 12: // BAN
+                            InventoryUtils.ban((Player) e.getWhoClicked());
+                            break;
 
-                    case 13: // MUTE
-                        InventoryUtils.mute((Player) e.getWhoClicked());
-                        break;
+                        case 13: // MUTE
+                            InventoryUtils.mute((Player) e.getWhoClicked());
+                            break;
 
-                    case 14: // KICK
+                        case 14: // KICK
 
-                        break;
+                            break;
 
-                    case 16: // UNBAN
+                        case 16: // UNBAN
 
-                        break;
+                            break;
 
-                    case 26: // CLOSE
-                        player.closeInventory();
-                        break;
+                        case 26: // CLOSE
+                            player.closeInventory();
+                            break;
 
-                    default:
-                        return;
-                }
+                        default:
+                            return;
+                    }
 
-            } else if (e.getView().getTitle().endsWith(ChatColor.AQUA.toString() + ChatColor.BOLD + "BAN")); {
-                Player player = (Player) e.getWhoClicked();
-                switch (e.getRawSlot()) {
-                    case 0: // e.getName...
-                        player.performCommand("");
-                        player.closeInventory();
-                        break;
-                    case 26:
-                        player.closeInventory();
-                        break;
+                } else if (e.getView().getTitle().endsWith(ChatColor.AQUA.toString() + ChatColor.BOLD + "BAN")) ;
+                {
+                    Player player = (Player) e.getWhoClicked();
+                    switch (e.getRawSlot()) {
+                        case 0: // e.getName...
+                            player.performCommand("ban " +  " 1d");
+                            player.closeInventory();
+                            break;
+                        case 26:
+                            player.closeInventory();
+                            break;
 
+                    }
                 }
             }
+
+
         }
 
-
     }
-
 }
