@@ -33,6 +33,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.4</version>
+                <configuration>
+                    <outputDirectory>C:\Users\linus\OneDrive\Desktop\localhost\plugins</outputDirectory>
+                </configuration>
                 <executions>
                     <execution>
                         <phase>package</phase>

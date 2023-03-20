@@ -28,9 +28,8 @@ public class PunishListener implements Listener {
         if (inv == null) return;
         InventoryHolder holder = inv.getHolder();
         if (holder instanceof PunishGUI) {
-            e.getInventory();
+            PunishGUI punishGUI = (PunishGUI) holder;
             if (e.getCurrentItem() != null) {
-                if (e.getView().getTitle().endsWith("PunishmentGUI")) {
                     e.setCancelled(true);
 
                     Player player = (Player) e.getWhoClicked();
@@ -63,19 +62,19 @@ public class PunishListener implements Listener {
                             return;
                     }
 
-                } else if (e.getView().getTitle().endsWith(ChatColor.AQUA.toString() + ChatColor.BOLD + "BAN")) ;
-                {
-                    Player player = (Player) e.getWhoClicked();
-                    switch (e.getRawSlot()) {
-                        case 0: // e.getName...
-                            player.performCommand("ban " +  " 1d");
-                            player.closeInventory();
-                            break;
-                        case 26:
-                            player.closeInventory();
-                            break;
+                    } else if (e.getView().getTitle().endsWith(ChatColor.AQUA.toString() + ChatColor.BOLD + "BAN"))
+                    {
+                        Player player = (Player) e.getWhoClicked();
+                        switch (e.getRawSlot()) {
+                            case 0: // e.getName...
+                                player.performCommand("ban " + punishGUI.getTarget().getName() + " 1d");
+                                player.closeInventory();
+                                break;
+                            case 26:
+                                player.closeInventory();
+                                break;
 
-                    }
+                        }
                 }
             }
 
@@ -83,4 +82,4 @@ public class PunishListener implements Listener {
         }
 
     }
-}
+
