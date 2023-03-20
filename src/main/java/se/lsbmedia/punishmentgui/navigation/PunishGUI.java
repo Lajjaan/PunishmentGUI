@@ -18,7 +18,7 @@ class PunishGUI implements InventoryHolder {
     public PunishGUI(Player target, Player punisher){
         this.target = target;
         this.punisher = punisher;
-        this.inv = Bukkit.createInventory(punisher, 26, "Punish" + target.getName());
+        this.inv = Bukkit.createInventory(punisher, 27, ChatColor.AQUA + "Punish " + ChatColor.RED + target.getName());
 
         // IP-BAN
         ItemStack ipban = new ItemStack(Material.RED_CANDLE);
