@@ -9,8 +9,6 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.Arrays;
-
 class PunishGUI implements InventoryHolder {
     private final Player target, punisher;
     private final Inventory inv;
@@ -18,7 +16,7 @@ class PunishGUI implements InventoryHolder {
     public PunishGUI(Player target, Player punisher){
         this.target = target;
         this.punisher = punisher;
-        this.inv = Bukkit.createInventory(punisher, 9, "Controll Management");
+        this.inv = Bukkit.createInventory(punisher, 9, "Punish" + target.getName());
 
         // Straffare
         ItemStack getPunisher = new ItemStack(Material.AMETHYST_SHARD);
@@ -41,7 +39,8 @@ class PunishGUI implements InventoryHolder {
         punisher.openInventory(inv);
     }
 
-    @Override public void getInventory(){
+    @Override public Inventory getInventory()
+    {
         return this.inv;
     }
 }
