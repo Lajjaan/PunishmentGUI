@@ -46,9 +46,11 @@ public class PunishCommand implements CommandExecutor {
                     }
                 } else {
                     player.sendMessage(ChatColor.RED + "Invalid usage!" + "\n" + ChatColor.GRAY + "Correct usage: /punish <player>");
+                    return true;
                 }
             } else {
                 player.sendMessage(ChatColor.RED + "No permission.");
+                return true;
             }
         }
         return true;
