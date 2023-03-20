@@ -1,4 +1,4 @@
-package se.lsbmedia.punishmentgui.navigation;
+package se.lsbmedia.punishmentgui;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -11,6 +11,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import se.lsbmedia.punishmentgui.Main;
+import se.lsbmedia.punishmentgui.navigation.PunishGUI;
 
 import java.lang.annotation.Target;
 import java.util.Arrays;

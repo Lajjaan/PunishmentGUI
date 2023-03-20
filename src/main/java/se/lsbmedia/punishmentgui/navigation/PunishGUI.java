@@ -11,7 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
 
-class PunishGUI implements InventoryHolder {
+public class PunishGUI implements InventoryHolder {
     private final Player target, punisher;
     private final Inventory inv;
 
