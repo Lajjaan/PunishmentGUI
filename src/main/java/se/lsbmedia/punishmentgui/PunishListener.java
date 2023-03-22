@@ -26,9 +26,9 @@ public class PunishListener implements Listener {
         if (inv == null) return;
         InventoryHolder holder = inv.getHolder();
         if (holder instanceof PunishGUI) {
-            e.setCancelled(true);
             PunishGUI punishGUI = (PunishGUI) holder;
             if (e.getCurrentItem() != null) {
+                e.setCancelled(true);
 
                 Player player = (Player) e.getWhoClicked();
 
