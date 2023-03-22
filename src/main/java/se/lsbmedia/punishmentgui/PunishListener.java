@@ -20,6 +20,7 @@ public class PunishListener implements Listener {
         this.main = main;
     }
 
+    // What happens when the GUI is opened
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
         Inventory inv = e.getClickedInventory();
@@ -31,6 +32,8 @@ public class PunishListener implements Listener {
                 e.setCancelled(true);
 
                 Player player = (Player) e.getWhoClicked();
+
+                // What happens if you click on one of the start menu's options.
 
                 switch (e.getRawSlot()) {
                     case 10: // IP-BAN
@@ -60,7 +63,9 @@ public class PunishListener implements Listener {
                         return;
                 }
 
-            } else if (e.getView().getTitle().endsWith(ChatColor.AQUA.toString() + ChatColor.BOLD + "BAN"))
+            }
+            // If you select the BAN menu
+            else if (e.getView().getTitle().endsWith(ChatColor.AQUA.toString() + ChatColor.BOLD + "BAN"))
             {
                 Player player = (Player) e.getWhoClicked();
                 switch (e.getRawSlot()) {
