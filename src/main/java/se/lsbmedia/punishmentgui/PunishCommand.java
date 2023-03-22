@@ -32,12 +32,12 @@ public class PunishCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        // Checks that it is a player who executes the command and not, for example, the console:
+        // Checks if the executor is a player or not, (we don't want the console able to execute the command):
         if (sender instanceof Player) {
             Player player = (Player) sender;
             // Checks if the player has the right permission:
             if (player.hasPermission("punish.use")) {
-                // If the command is the correct length:
+                // Checks if the command is the correct length:
                 if (args.length == 1) {
                     Player target = Bukkit.getPlayer(args[0]);
                     PunishGUI gui = new PunishGUI(target, (Player) sender);
@@ -50,12 +50,12 @@ public class PunishCommand implements CommandExecutor {
                         player.sendMessage(ChatColor.RED + "This player is not online!");
                     }
                 } else {
-                    // Incorrect use of the command
+                    // Incorrect use of the command:
                     player.sendMessage(ChatColor.RED + "Invalid usage!" + "\n" + ChatColor.GRAY + "Correct usage: /punish <player>");
                     return true;
                 }
             } else {
-                // Missing permission
+                // Missing permission:
                 player.sendMessage(ChatColor.RED + "No permission.");
                 return true;
             }
