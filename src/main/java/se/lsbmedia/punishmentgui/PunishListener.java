@@ -10,6 +10,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import se.lsbmedia.punishmentgui.Main;
 import se.lsbmedia.punishmentgui.navigation.InventoryUtils;
+import se.lsbmedia.punishmentgui.navigation.IpbanUI;
 import se.lsbmedia.punishmentgui.navigation.PunishGUI;
 
 public class PunishListener implements Listener {
@@ -26,60 +27,61 @@ public class PunishListener implements Listener {
         Inventory inv = e.getClickedInventory();
         if (inv == null) return;
         InventoryHolder holder = inv.getHolder();
-        if (holder instanceof PunishGUI) {
-            PunishGUI punishGUI = (PunishGUI) holder;
-            if (e.getCurrentItem() != null) {
-                e.setCancelled(true);
+            if (holder instanceof PunishGUI) {
+                PunishGUI punishGUI = (PunishGUI) holder;
+                if (e.getCurrentItem() != null) {
+                    e.setCancelled(true);
 
-                Player player = (Player) e.getWhoClicked();
+                    Player player = (Player) e.getWhoClicked();
 
-                // What happens if you click on one of the start menu's options.
+                    // What happens if you click on one of the start menu's options.
 
-                switch (e.getRawSlot()) {
-                    case 10: // IP-BAN
-                        InventoryUtils.ipBan((Player) e.getWhoClicked());
-                        break;
-                    case 12: // BAN
-                        InventoryUtils.ban((Player) e.getWhoClicked());
-                        break;
+                    switch (e.getRawSlot()) {
+                        case 10: // IP-BAN
+                            IpbanUI banUI = new IpbanUI(punishGUI.getTarget(), punishGUI.getPunisher());
+                            banUI.showPunisher();
+                            break;
+                        case 12: // BAN
+                            InventoryUtils.ban((Player) e.getWhoClicked());
+                            break;
 
-                    case 13: // MUTE
-                        InventoryUtils.mute((Player) e.getWhoClicked());
-                        break;
+                        case 13: // MUTE
+                            InventoryUtils.mute((Player) e.getWhoClicked());
+                            break;
 
-                    case 14: // KICK
+                        case 14: // KICK
 
-                        break;
+                            break;
 
-                    case 16: // UNBAN
+                        case 16: // UNBAN
 
-                        break;
+                            break;
 
-                    case 26: // CLOSE
-                        player.closeInventory();
-                        break;
+                        case 26: // CLOSE
+                            player.closeInventory();
+                            break;
 
-                    default:
-                        return;
-                }
-
-            }
-            // If you select the BAN menu
-            else if (e.getView().getTitle().endsWith(ChatColor.AQUA.toString() + ChatColor.BOLD + "BAN"))
-            {
-                Player player = (Player) e.getWhoClicked();
-                switch (e.getRawSlot()) {
-                    case 0: // e.getName...
-                        player.performCommand("ban " + punishGUI.getTarget().getName() + " 1d");
-                        player.closeInventory();
-                        break;
-                    case 26:
-                        player.closeInventory();
-                        break;
+                        default:
+                            return;
+                    }
 
                 }
+                // If you select the BAN menu
+                else if (e.getView().getTitle().endsWith(ChatColor.AQUA.toString() + ChatColor.BOLD + "BAN"))
+                {
+                    Player player = (Player) e.getWhoClicked();
+                    switch (e.getRawSlot()) {
+                        case 0: // e.getName...
+                            player.performCommand("ban " + punishGUI.getTarget().getName() + " 1d");
+                            player.closeInventory();
+                            break;
+                        case 26:
+                            player.closeInventory();
+                            break;
+
+                    }
+                }
             }
-        }
 
 
     }
