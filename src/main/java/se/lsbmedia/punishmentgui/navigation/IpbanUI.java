@@ -15,7 +15,7 @@ public class IpbanUI implements InventoryHolder {
     private final Player target, punisher;
     private final Inventory inv2;
 
-    public IpbanUI(Player target, Player punisher){
+    public IpbanUI(Player target, Player punisher) {
         this.target = target;
         this.punisher = punisher;
         this.inv2 = Bukkit.createInventory(this, 27, ChatColor.AQUA.toString() + ChatColor.BOLD + "IP-BAN" + ChatColor.RED + target.getName());

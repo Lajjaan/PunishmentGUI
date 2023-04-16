@@ -1,6 +1,5 @@
 package se.lsbmedia.punishmentgui;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -8,9 +7,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
-import se.lsbmedia.punishmentgui.Main;
-import se.lsbmedia.punishmentgui.navigation.InventoryUtils;
+import se.lsbmedia.punishmentgui.navigation.BanUI;
 import se.lsbmedia.punishmentgui.navigation.IpbanUI;
+import se.lsbmedia.punishmentgui.navigation.MuteUI;
 import se.lsbmedia.punishmentgui.navigation.PunishGUI;
 
 public class PunishListener implements Listener {
@@ -38,15 +37,17 @@ public class PunishListener implements Listener {
 
                     switch (e.getRawSlot()) {
                         case 10: // IP-BAN
-                            IpbanUI banUI = new IpbanUI(punishGUI.getTarget(), punishGUI.getPunisher());
-                            banUI.showPunisher();
+                            IpbanUI ipbanUI = new IpbanUI(punishGUI.getTarget(), punishGUI.getPunisher());
+                            ipbanUI.showPunisher();
                             break;
                         case 12: // BAN
-                            InventoryUtils.ban((Player) e.getWhoClicked());
+                            BanUI banUI = new BanUI(punishGUI.getTarget(), punishGUI.getPunisher());
+                            banUI.showPunisher();
                             break;
 
                         case 13: // MUTE
-                            InventoryUtils.mute((Player) e.getWhoClicked());
+                            MuteUI muteUI = new MuteUI(punishGUI.getTarget(), punishGUI.getPunisher());
+                            muteUI.showPunisher();
                             break;
 
                         case 14: // KICK
