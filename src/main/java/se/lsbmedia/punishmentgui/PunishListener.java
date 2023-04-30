@@ -7,6 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
+import org.checkerframework.checker.guieffect.qual.UI;
 import se.lsbmedia.punishmentgui.navigation.BanUI;
 import se.lsbmedia.punishmentgui.navigation.IpbanUI;
 import se.lsbmedia.punishmentgui.navigation.MuteUI;
@@ -51,7 +52,8 @@ public class PunishListener implements Listener {
                             break;
 
                         case 14: // KICK
-
+                            KickUI kickUI = new KickUI(punishGUI.getTarget(), punishGUI.getPunisher());
+                            kickUI.showPunisher();
                             break;
 
                         case 16: // UNBAN
