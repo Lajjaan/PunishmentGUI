@@ -12,6 +12,7 @@ import se.lsbmedia.punishmentgui.navigation.BanUI;
 import se.lsbmedia.punishmentgui.navigation.IpbanUI;
 import se.lsbmedia.punishmentgui.navigation.MuteUI;
 import se.lsbmedia.punishmentgui.navigation.PunishGUI;
+import se.lsbmedia.punishmentgui.utils.TextUtils;
 
 public class PunishListener implements Listener {
 
@@ -25,61 +26,65 @@ public class PunishListener implements Listener {
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
         Inventory inv = e.getClickedInventory();
-        if (inv == null) return;
-        InventoryHolder holder = inv.getHolder();
-            if (holder instanceof PunishGUI) {
-            PunishGUI punishGUI = (PunishGUI) holder;
-                if (e.getCurrentItem() != null) {
-                    e.setCancelled(true);
+        if (e.getView().getTitle().equals(TextUtils.color("&b&lPunish: &c" + PunishGUI.getTarget().getName()))) {
 
-                    Player player = (Player) e.getWhoClicked();
-                    // What happens if you click on one of the start menu's options.
+            e.getWhoClicked().sendMessage("hej1");
 
-                    switch (e.getRawSlot()) {
-                        case 10: // IP-BAN
-                            player.sendMessage("Din lurk!");
-                            IpbanUI ipbanUI = new IpbanUI(punishGUI.getTarget(), punishGUI.getPunisher());
-                            ipbanUI.showPunisher();
-                            break;
-                        case 12: // BAN
-                            // BanUI banUI = new BanUI(punishGUI.getTarget(), punishGUI.getPunisher());
-                            // banUI.showPunisher();
-                            break;
+            if (e.getCurrentItem() != null) {
+                e.setCancelled(true);
 
-                        case 13: // MUTE
-                            // MuteUI muteUI = new MuteUI(punishGUI.getTarget(), punishGUI.getPunisher());
-                            // muteUI.showPunisher();
-                            break;
-
-                        case 14: // KICK
-                            break;
-
-                        case 16: // UNBAN
-
-                            break;
-
-                        case 26: // CLOSE
-                            player.closeInventory();
-                            break;
-
-                        default:
-                            return;
-                    }
-
-            }
-            // If you select the BAN menu
-            else if (e.getView().getTitle().endsWith(ChatColor.AQUA.toString() + ChatColor.BOLD + "BAN")) {
+                e.getWhoClicked().sendMessage("hej2");
                 Player player = (Player) e.getWhoClicked();
+                // What happens if you click on one of the start menu's options.
+
                 switch (e.getRawSlot()) {
-                    case 0: // e.getName...
-                        player.performCommand("ban " + punishGUI.getTarget().getName() + " 1d");
+                    case 10: // IP-BAN
+                        player.sendMessage("hej3");
+                        player.sendMessage("Din lurk!");
+                        IpbanUI ipbanUI = new IpbanUI(PunishGUI.getTarget(), PunishGUI.getPunisher());
+                        ipbanUI.showPunisher();
+                        break;
+                    case 12: // BAN
+                        // BanUI banUI = new BanUI(punishGUI.getTarget(), punishGUI.getPunisher());
+                        // banUI.showPunisher();
+                        break;
+
+                    case 13: // MUTE
+                        // MuteUI muteUI = new MuteUI(punishGUI.getTarget(), punishGUI.getPunisher());
+                        // muteUI.showPunisher();
+                        break;
+
+                    case 14: // KICK
+                        break;
+
+                    case 16: // UNBAN
+
+                        break;
+
+                    case 26: // CLOSE
                         player.closeInventory();
                         break;
-                    case 26:
-                        player.closeInventory();
-                        break;
+
+                    default:
+                        return;
                 }
             }
+
         }
+
+        /*else if (e.getView().getTitle().endsWith(ChatColor.AQUA.toString() + ChatColor.BOLD + "BAN")) {
+            Player player = (Player) e.getWhoClicked();
+            switch (e.getRawSlot()) {
+                case 0: // e.getName...
+                    player.performCommand("ban " + PunishGUI.getTarget().getName() + " 1d");
+                    player.closeInventory();
+                    break;
+                case 26:
+                    player.closeInventory();
+                    break;
+            }
+        }
+         */
     }
+
 }

@@ -32,6 +32,7 @@ public class PunishCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
+
         // Checks if the executor is a player or not, (we don't want the console able to execute the command):
         if (sender instanceof Player) {
             Player player = (Player) sender;
@@ -62,4 +63,5 @@ public class PunishCommand implements CommandExecutor {
         }
         return true;
     }
+
 }

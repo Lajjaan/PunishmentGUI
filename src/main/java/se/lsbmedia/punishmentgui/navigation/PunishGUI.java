@@ -12,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.Arrays;
 
 public class PunishGUI implements InventoryHolder {
-    private final Player target, punisher;
+    private static Player target, punisher;
     private final Inventory inv;
 
     public PunishGUI(Player target, Player punisher){
@@ -79,11 +79,11 @@ public class PunishGUI implements InventoryHolder {
         punisher.openInventory(inv);
     }
 
-    public Player getPunisher() {
+    public static Player getPunisher() {
         return punisher;
     }
 
-    public Player getTarget() {
+    public static Player getTarget() {
         return target;
     }
 
