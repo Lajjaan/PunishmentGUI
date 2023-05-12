@@ -8,6 +8,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import se.lsbmedia.punishmentgui.utils.ItemUtils;
+import se.lsbmedia.punishmentgui.utils.TextUtils;
 
 import java.util.Arrays;
 
@@ -21,12 +23,7 @@ public class IpbanUI implements InventoryHolder {
         this.inv2 = Bukkit.createInventory(this, 27, ChatColor.AQUA.toString() + ChatColor.BOLD + "IP-BAN" + ChatColor.RED + target.getName());
 
         // IP-BAN
-        ItemStack ipban = new ItemStack(Material.RED_CANDLE);
-        ItemMeta ipbanMeta = ipban.getItemMeta();
-        ipbanMeta.setDisplayName(ChatColor.DARK_RED + "IP-BAN");
-        ipbanMeta.setLore(Arrays.asList(ChatColor.GRAY + "Permanently ip-ban a player!"));
-        ipban.setItemMeta(ipbanMeta);
-
+        ItemStack ipban = ItemUtils.createItem(Material.PAPER, 1, TextUtils.color("&b&lIP BAN"), "", 0);
         inv2.setItem(10, ipban);
 
         // CLOSE
