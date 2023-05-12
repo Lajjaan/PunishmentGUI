@@ -2,8 +2,9 @@ name: PunishmentGUI
 version: '${project.version}'
 main: se.lsbmedia.punishmentgui.Main
 api-version: 1.19
-authors: [ Lajjan ]
+authors: [ Lajjan, Ljud ]
 description: A GUI plugin to make punishment easier for staffs.
 website: www.lsbmedia.se
 commands:
   punish:
+    description: Punish a player with a simple GUI.
