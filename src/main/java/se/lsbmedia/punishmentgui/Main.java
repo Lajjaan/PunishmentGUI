@@ -10,7 +10,7 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         getCommand("punish").setExecutor(new PunishCommand(this));
-        Bukkit.getPluginManager().registerEvents(new PunishListener(this), this);
+        getServer().getPluginManager().registerEvents(new PunishListener(this), this);
 
 
     }

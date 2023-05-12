@@ -37,7 +37,6 @@ public class IpbanUI implements InventoryHolder {
 
         inv2.setItem(26, close);
 
-
     }
 
     public void showPunisher(){

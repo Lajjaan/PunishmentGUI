@@ -8,6 +8,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import se.lsbmedia.punishmentgui.utils.ItemUtils;
+import se.lsbmedia.punishmentgui.utils.TextUtils;
 
 import java.util.Arrays;
 
@@ -21,12 +23,7 @@ public class BanUI implements InventoryHolder {
         this.invBan = Bukkit.createInventory(this, 27, ChatColor.AQUA.toString() + ChatColor.BOLD + "BAN" + ChatColor.RED + target.getName());
 
         // BAN 1d
-        ItemStack ban1 = new ItemStack(Material.PAPER);
-        ItemMeta banMeta = ban1.getItemMeta();
-        banMeta.setDisplayName(ChatColor.AQUA + "BAN 1d");
-        banMeta.setLore(Arrays.asList(ChatColor.GRAY + "Temporarily ban the player for 1 day!"));
-        ban1.setItemMeta(banMeta);
-
+        ItemStack ban1 = ItemUtils.createItem(Material.PAPER, 1, TextUtils.color("&b&lBAN 1d"), "", 0);
         invBan.setItem(0, ban1);
 
         // BAN 3d
