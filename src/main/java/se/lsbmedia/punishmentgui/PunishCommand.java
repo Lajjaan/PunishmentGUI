@@ -2,21 +2,11 @@ package se.lsbmedia.punishmentgui;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import se.lsbmedia.punishmentgui.Main;
-import se.lsbmedia.punishmentgui.navigation.PunishGUI;
-
-import java.lang.annotation.Target;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.UUID;
+import se.lsbmedia.punishmentgui.menu.menus.PunishGUI;
 
 public class PunishCommand implements CommandExecutor {
 
@@ -41,10 +31,10 @@ public class PunishCommand implements CommandExecutor {
                 // Checks if the command is the correct length:
                 if (args.length == 1) {
                     Player target = Bukkit.getPlayer(args[0]);
-                    PunishGUI gui = new PunishGUI(target, (Player) sender);
+                    //PunishGUI gui = new PunishGUI(target, (Player) sender);
                     if (Bukkit.getPlayer(args[0]) != null) {
                         // Opens the start menu:
-                        gui.showPunisher();
+                        PunishGUI gui = new PunishGUI(player, target, 9, "Punish" + target.getDisplayName());
 
                     } else {
                         // Player not online:

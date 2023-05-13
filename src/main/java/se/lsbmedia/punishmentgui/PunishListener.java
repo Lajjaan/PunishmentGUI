@@ -41,8 +41,6 @@ public class PunishListener implements Listener {
                     case 10: // IP-BAN
                         player.sendMessage("hej3");
                         player.sendMessage("Din lurk!");
-                        IpbanUI ipbanUI = new IpbanUI(PunishGUI.getTarget(), PunishGUI.getPunisher());
-                        ipbanUI.showPunisher();
                         break;
                     case 12: // BAN
                         // BanUI banUI = new BanUI(punishGUI.getTarget(), punishGUI.getPunisher());
