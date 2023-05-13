@@ -24,7 +24,7 @@ public class PunishGUI extends Menu {
     protected void handleClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         if (event.getCurrentItem().getType() == Material.RED_WOOL) {
-            BanGUI banGUI = new BanGUI(player, target, 9, "&cBan " + target.getDisplayName());
+            BanGUI banGUI = new BanGUI(player, target, 9, "&bBanna: &c" + target.getDisplayName());
             banGUI.open();
         }
     }
