@@ -34,7 +34,8 @@ public class PunishCommand implements CommandExecutor {
                     //PunishGUI gui = new PunishGUI(target, (Player) sender);
                     if (Bukkit.getPlayer(args[0]) != null) {
                         // Opens the start menu:
-                        PunishGUI gui = new PunishGUI(player, target, 9, "Punish" + target.getDisplayName());
+                        PunishGUI gui = new PunishGUI(player, target, 9, "Punish " + target.getDisplayName());
+                        gui.open();
 
                     } else {
                         // Player not online:

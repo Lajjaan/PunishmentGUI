@@ -2,6 +2,7 @@ package se.lsbmedia.punishmentgui.menu.menus;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import se.lsbmedia.punishmentgui.menu.Menu;
 import se.lsbmedia.punishmentgui.utils.ItemUtils;
@@ -20,12 +21,12 @@ public class PunishGUI extends Menu {
     }
 
     @Override
-    protected void handleClick(Player player, ItemStack clickedItem) {
-
-        if (clickedItem.getType() == Material.RED_WOOL) {
-            BanGUI banGUI = new BanGUI(player, target, 9, "Ban");
-            openNewGUI(banGUI);
+    protected void handleClick(InventoryClickEvent event) {
+        Player player = (Player) event.getWhoClicked();
+        if (event.getCurrentItem().getType() == Material.RED_WOOL) {
+            BanGUI banGUI = new BanGUI(player, target, 9, "&cBan " + target.getDisplayName());
+            banGUI.open();
         }
-
     }
+
 }

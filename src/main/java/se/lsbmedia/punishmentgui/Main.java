@@ -8,6 +8,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
+import se.lsbmedia.punishmentgui.menu.MenuEventHandler;
 
 public final class Main extends JavaPlugin implements Listener {
 
@@ -16,7 +17,7 @@ public final class Main extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         getCommand("punish").setExecutor(new PunishCommand(this));
-
+        getServer().getPluginManager().registerEvents(new MenuEventHandler(), this);
        // getServer().getPluginManager().registerEvents(new PunishListener(this), this);
 
 

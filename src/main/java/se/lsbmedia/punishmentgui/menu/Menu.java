@@ -2,12 +2,12 @@ package se.lsbmedia.punishmentgui.menu;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.InventoryHolder;
+import se.lsbmedia.punishmentgui.utils.TextUtils;
 
-public abstract class Menu {
+public abstract class Menu implements InventoryHolder {
 
     protected Player player, target;
     protected Inventory inventory;
@@ -16,40 +16,21 @@ public abstract class Menu {
 
         this.player = player;
         this.target = target;
-        player.closeInventory();
-        inventory = Bukkit.createInventory(null, size, title);
+        inventory = Bukkit.createInventory(this, size, TextUtils.color(title));
         createComponents();
-        player.openInventory(inventory);
 
     }
 
     protected abstract void createComponents();
 
-    protected abstract void handleClick(Player player, ItemStack clickedItem);
-
-    protected void openNewGUI(Menu gui) {
-        player.closeInventory();
-        gui.open(player);
-    }
-
-    protected void open(Player player) {
+    public void open() {
         player.openInventory(inventory);
     }
 
-    @EventHandler
-    protected void onClick(InventoryClickEvent event) {
+    protected abstract void handleClick(InventoryClickEvent event);
 
-        if (!event.getInventory().equals(inventory)) return;
-
-        Player player = (Player) event.getWhoClicked();
-        ItemStack clickedItem = event.getCurrentItem();
-
-        if (clickedItem != null) {
-            handleClick(player, clickedItem);
-        }
-
-        event.setCancelled(true);
-
+    @Override
+    public Inventory getInventory() {
+        return inventory;
     }
-
 }
