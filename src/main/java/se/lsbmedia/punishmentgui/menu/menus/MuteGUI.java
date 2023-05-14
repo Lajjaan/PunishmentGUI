@@ -40,23 +40,23 @@ public class MuteGUI extends Menu {
 
         // mute 14d
         ItemStack mute4 = ItemUtils.createItem(Material.BOOK, 1, TextUtils.color("&b&lMUTE 14d"), "", 0);
-        inventory.setItem(3, mute3);
+        inventory.setItem(3, mute4);
 
         // mute 24d
         ItemStack mute5 = ItemUtils.createItem(Material.BOOK, 1, TextUtils.color("&b&lMUTE 24d"), "", 0);
-        inventory.setItem(4, mute4);
+        inventory.setItem(4, mute5);
 
         // mute 31d
         ItemStack mute6 = ItemUtils.createItem(Material.BOOK, 1, TextUtils.color("&b&lMUTE 31d"), "", 0);
-        inventory.setItem(5, mute5);
+        inventory.setItem(5, mute6);
 
         // mute 45d
         ItemStack mute7 = ItemUtils.createItem(Material.WRITABLE_BOOK, 1, TextUtils.color("&b&lMUTE 45d"), "", 0);
-        inventory.setItem(6, mute6);
+        inventory.setItem(6, mute7);
 
         // mute 95d
         ItemStack mute8 = ItemUtils.createItem(Material.WRITABLE_BOOK, 1, TextUtils.color("&b&lMUTE 95d"), "", 0);
-        inventory.setItem(7, mute7);
+        inventory.setItem(7, mute8);
 
         // PERM mute
         ItemStack perm = ItemUtils.createItem(Material.TNT, 1, TextUtils.color("&b&lPERM MUTE"), "", 0);
@@ -69,6 +69,8 @@ public class MuteGUI extends Menu {
         // CLOSE
         ItemStack close = ItemUtils.createItem(Material.BARRIER, 1, "&cClose", "", 0);
         inventory.setItem(14, close);
+
+        ItemUtils.filler(Material.LIGHT_BLUE_STAINED_GLASS_PANE, inventory);
 
     }
 
