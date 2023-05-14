@@ -15,12 +15,10 @@ public class MenuEventHandler implements Listener {
 
         Inventory inventory = event.getInventory();
         Player player = (Player) event.getWhoClicked();
-        if (inventory != null) {
-            if (inventory.getHolder() instanceof Menu) {
-                Menu menu = (Menu) inventory.getHolder();
-                menu.handleClick(event);
-                event.setCancelled(true);
-            }
+        if (inventory.getHolder() instanceof Menu) {
+            Menu menu = (Menu) inventory.getHolder();
+            menu.handleClick(event);
+            event.setCancelled(true);
         }
 
     }

@@ -9,14 +9,17 @@ import se.lsbmedia.punishmentgui.utils.TextUtils;
 
 public abstract class Menu implements InventoryHolder {
 
+    public abstract String title();
+    public abstract int size();
+
     protected Player player, target;
     protected Inventory inventory;
 
-    public Menu(Player player, Player target, int size, String title) {
+    public Menu(Player player, Player target) {
 
         this.player = player;
         this.target = target;
-        inventory = Bukkit.createInventory(this, size, TextUtils.color(title));
+        inventory = Bukkit.createInventory(this, size(), TextUtils.color(title()));
         createComponents();
 
     }

@@ -1,9 +1,11 @@
 package se.lsbmedia.punishmentgui.utils;
 
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 
 import javax.xml.crypto.Data;
 import java.util.ArrayList;
@@ -44,7 +46,22 @@ public class ItemUtils {
         return itemStack;
     }
 
+    public static void filler(Material material, Inventory inventory) {
+        ItemStack fillerItem = createItem(material, 1, " ", "", 0);
+        for (int i = 0; i < inventory.getSize(); i++) {
+            if (inventory.getItem(i) == null) {
+                inventory.setItem(i, fillerItem);
+            }
+        }
+    }
 
+    public static ItemStack getPlayerHead(Player player, String name) {
+        ItemStack head = createItem(Material.PLAYER_HEAD, 1, name, "", 0);
+        SkullMeta meta = (SkullMeta) head.getItemMeta();
+        meta.setOwningPlayer(player);
+        head.setItemMeta(meta);
+        return head;
+    }
 
 }
 
