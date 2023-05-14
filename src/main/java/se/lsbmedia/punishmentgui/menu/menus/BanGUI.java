@@ -71,6 +71,8 @@ public class BanGUI extends Menu {
         ItemStack close = ItemUtils.createItem(Material.BARRIER, 1, "&cBack", "", 0);
         inventory.setItem(14, close);
 
+        ItemUtils.filler(Material.LIGHT_BLUE_STAINED_GLASS_PANE, inventory);
+
     }
 
     @Override
