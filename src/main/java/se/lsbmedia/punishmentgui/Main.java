@@ -1,20 +1,28 @@
 package se.lsbmedia.punishmentgui;
 
-import org.bukkit.event.Listener;
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.messaging.PluginMessageListener;
 import se.lsbmedia.punishmentgui.command.PunishCommand;
 import se.lsbmedia.punishmentgui.menu.MenuEventHandler;
 
-public final class Main extends JavaPlugin implements Listener {
+import java.nio.charset.StandardCharsets;
 
+public final class Main extends JavaPlugin implements PluginMessageListener {
+
+    private static Main instance;
 
     // When the program starts, the commands and events gets registered.
     @Override
     public void onEnable() {
 
+        instance = this;
+        getServer().getMessenger().registerOutgoingPluginChannel(this, "punishment_namespace:punish_channel");
+
         registerCommands();
         registerEvents();
-
     }
 
     private void registerCommands() {
@@ -25,6 +33,32 @@ public final class Main extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new MenuEventHandler(), this);
     }
 
+    public static Main getInstance() {
+        return instance;
+    }
+
+
+    public void punishPlayer(Player player, Player target, String punishType, int days) {
+
+        String command = punishType + " " + target.getName();
+
+        if (days >= 1) {
+            command = command + " " + days + " d";
+        }
+
+        ByteArrayDataOutput out = ByteStreams.newDataOutput();
+
+        byte[] commandData = command.getBytes(StandardCharsets.UTF_8);
+        out.writeShort(commandData.length);
+        out.write(commandData);
+
+        player.sendPluginMessage(this, "punishment_namespace:punish_channel", out.toByteArray());
+    }
+
+    @Override
+    public void onPluginMessageReceived(String s, Player player, byte[] bytes) {
+
+    }
 }
 
 

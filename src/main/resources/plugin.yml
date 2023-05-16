@@ -5,6 +5,8 @@ api-version: 1.19
 authors: [ Lajjan, Ljud ]
 description: A GUI plugin to make punishment easier for staffs.
 website: www.lsbmedia.se
+channels:
+  - "punishment_namespace:punish_channel"
 commands:
   punish:
     description: Punish a player with a simple GUI.
