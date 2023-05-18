@@ -6,23 +6,8 @@ import se.lsbmedia.punishmentgui.menu.Menu;
 
 public class PlayersGUI extends Menu {
 
-    @Override
-    public String title() {
-        return "&b&lPunish - Players";
-    }
-
-    @Override
-    public int size() {
-        return 9;
-    }
-
     public PlayersGUI(Player player, Player target) {
-        super(player, target);
-    }
-
-    @Override
-    protected void createComponents() {
-
+        super(player, target, "players");
     }
 
     @Override

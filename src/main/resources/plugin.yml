@@ -10,3 +10,5 @@ channels:
 commands:
   punish:
     description: Punish a player with a simple GUI.
+  punishreload:
+    description: Reloads the config.

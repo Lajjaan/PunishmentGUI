@@ -6,16 +6,10 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import se.lsbmedia.punishmentgui.Main;
 import se.lsbmedia.punishmentgui.menu.menus.PunishGUI;
 
 public class PunishCommand implements CommandExecutor {
 
-    private Main main;
-
-    public PunishCommand(Main main) {
-        this.main = main;
-    }
                 //       Command:     /punish <player>
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -30,6 +24,7 @@ public class PunishCommand implements CommandExecutor {
         }
         // Checks if the command is the correct length:
         if (args.length == 1) {
+
             Player target = Bukkit.getPlayer(args[0]);
             if (target != null) {
                 // Opens the start menu:

@@ -1,0 +1,332 @@
+punish:
+  title: "&8| &b&lSTRAFFA &8-> &f%target%"
+  size: 9
+  items:
+    mute:
+      slot: 3
+      name: "&8| &e&lMUTE &8-> &f%target%"
+      material: PAPER
+      amount: 1
+      lore:
+        - "&aDetta är ett test"
+    ban:
+      slot: 4
+      name: "&8| &6&lBAN &8-> &f%target%"
+      material: WOODEN_AXE
+      amount: 1
+      lore:
+        - "Test"
+    ipban:
+      slot: 5
+      name: "&8| &c&lIP BAN &8-> &f%target%"
+      material: ENDER_EYE
+      amount: 1
+      lore:
+        - "Test"
+    players:
+      slot: 7
+      name: "&8| &b&lALLA SPELARE &8-> &f%target%"
+      material: PLAYER_HEAD
+      amount: 1
+      lore:
+        - "Test"
+    close:
+      slot: 8
+      name: "&8| &e&lSTÄNG"
+      material: BARRIER
+      amount: 1
+      lore:
+        - "Test"
+
+# MUTE MENY
+mute:
+  title: "&8| &e&lMUTE &8-> &f%target%"
+  size: 18
+  items:
+    1:
+      slot: 0
+      duration: 1
+      name: "&e&lMUTE &8- &f&l1D"
+      material: PAPER
+      amount: 1
+      lore:
+        - ""
+    2:
+      slot: 1
+      duration: 3
+      name: "&e&lMUTE &8- &f&l3D"
+      material: PAPER
+      amount: 3
+      lore:
+        - ""
+    3:
+      slot: 2
+      duration: 7
+      name: "&e&lMUTE &8- &f&l7D"
+      material: PAPER
+      amount: 7
+      lore:
+        - ""
+    4:
+      slot: 3
+      duration: 14
+      name: "&e&lMUTE &8- &f&l14D"
+      material: BOOK
+      amount: 14
+      lore:
+        - ""
+    5:
+      slot: 4
+      duration: 24
+      name: "&e&lMUTE &8- &f&l24D"
+      material: BOOK
+      amount: 24
+      lore:
+        - ""
+    6:
+      slot: 5
+      duration: 31
+      name: "&e&lMUTE &8- &f&l31D"
+      material: BOOK
+      amount: 31
+      lore:
+        - ""
+    7:
+      slot: 6
+      duration: 45
+      name: "&e&lMUTE &8- &f&l45D"
+      material: WRITABLE_BOOK
+      amount: 45
+      lore:
+        - ""
+    8:
+      slot: 7
+      duration: 95
+      name: "&e&lMUTE &8- &f&l95D"
+      material: WRITABLE_BOOK
+      amount: 1
+      lore:
+        - ""
+    9:
+      slot: 8
+      duration: 0
+      name: "&e&lMUTE &8- &f&lPERM"
+      material: TNT
+      amount: 1
+      lore:
+        - ""
+    10:
+      slot: 13
+      name: "&b%target%"
+      material: PLAYER_HEAD
+      amount: 1
+      lore:
+        - ""
+    11:
+      slot: 14
+      duration: 0
+      name: "&cTillbaka"
+      material: BARRIER
+      amount: 1
+      lore:
+        - ""
+
+# BAN MENY
+ban:
+  title: "&8| &6&lBAN &8-> &f%target%"
+  size: 18
+  items:
+    1:
+      slot: 0
+      duration: 1
+      name: "&6&lBAN &8- &f&l1D"
+      material: YELLOW_CONCRETE
+      amount: 1
+      lore:
+        - ""
+    2:
+      slot: 1
+      duration: 3
+      name: "&6&lBAN &8- &f&l3D"
+      material: YELLOW_CONCRETE
+      amount: 3
+      lore:
+        - ""
+    3:
+      slot: 2
+      duration: 7
+      name: "&6&lBAN &8- &f&l7D"
+      material: YELLOW_CONCRETE
+      amount: 7
+      lore:
+        - ""
+    4:
+      slot: 3
+      duration: 14
+      name: "&6&lBAN &8- &f&l14D"
+      material: ORANGE_CONCRETE
+      amount: 14
+      lore:
+        - ""
+    5:
+      slot: 4
+      duration: 24
+      name: "&6&lBAN &8- &f&l24D"
+      material: ORANGE_CONCRETE
+      amount: 24
+      lore:
+        - ""
+    6:
+      slot: 5
+      duration: 31
+      name: "&6&lBAN &8- &f&l31D"
+      material: ORANGE_CONCRETE
+      amount: 31
+      lore:
+        - ""
+    7:
+      slot: 6
+      duration: 45
+      name: "&6&lBAN &8- &f&l45D"
+      material: RED_CONCRETE
+      amount: 45
+      lore:
+        - ""
+    8:
+      slot: 7
+      duration: 95
+      name: "&6&lBAN &8- &f&l95D"
+      material: RED_CONCRETE
+      amount: 1
+      lore:
+        - ""
+    9:
+      slot: 8
+      duration: 0
+      name: "&6&lBAN &8- &f&lPERM"
+      material: TNT
+      amount: 1
+      lore:
+        - ""
+    10:
+      slot: 13
+      name: "&b%target%"
+      material: PLAYER_HEAD
+      amount: 1
+      lore:
+        - ""
+    11:
+      slot: 14
+      duration: 0
+      name: "&cTillbaka"
+      material: BARRIER
+      amount: 1
+      lore:
+        - ""
+
+# IP BAN MENU
+ipban:
+  title: "&8| &c&lIP BAN &8-> &f%target%"
+  size: 18
+  items:
+    1:
+      slot: 0
+      duration: 1
+      name: "&c&lIP BAN &8- &f&l1D"
+      material: ENDER_PEARL
+      amount: 1
+      lore:
+        - ""
+    2:
+      slot: 1
+      duration: 3
+      name: "&c&lIP BAN &8- &f&l3D"
+      material: ENDER_PEARL
+      amount: 3
+      lore:
+        - ""
+    3:
+      slot: 2
+      duration: 7
+      name: "&c&lIP BAN &8- &f&l7D"
+      material: ENDER_PEARL
+      amount: 7
+      lore:
+        - ""
+    4:
+      slot: 3
+      duration: 14
+      name: "&c&lIP BAN &8- &f&l14D"
+      material: ENDER_EYE
+      amount: 14
+      lore:
+        - ""
+    5:
+      slot: 4
+      duration: 24
+      name: "&c&lIP BAN &8- &f&l24D"
+      material: ENDER_EYE
+      amount: 24
+      lore:
+        - ""
+    6:
+      slot: 5
+      duration: 31
+      name: "&c&lIP BAN &8- &f&l31D"
+      material: ENDER_EYE
+      amount: 31
+      lore:
+        - ""
+    7:
+      slot: 6
+      duration: 45
+      name: "&c&lIP BAN &8- &f&l45D"
+      material: SLIME_BALL
+      amount: 45
+      lore:
+        - ""
+    8:
+      slot: 7
+      duration: 95
+      name: "&c&lIP BAN &8- &f&l95D"
+      material: SLIME_BALL
+      amount: 1
+      lore:
+        - ""
+    9:
+      slot: 8
+      duration: 0
+      name: "&c&lIP BAN &8- &f&lPERM"
+      material: TNT
+      amount: 1
+      lore:
+        - ""
+    10:
+      slot: 13
+      name: "&b%target%"
+      material: PLAYER_HEAD
+      amount: 1
+      lore:
+        - ""
+    11:
+      slot: 14
+      duration: 0
+      name: "&cTillbaka"
+      material: BARRIER
+      amount: 1
+      lore:
+        - ""
+
+# PLAYERS MENU
+players:
+  title: "&8| &b&lALL PLAYERS "
+  size: 18
+  items:
+    1:
+      slot: 0
+      duration: 1
+      name: "&b&lTest"
+      material: ENDER_PEARL
+      amount: 1
+      lore:
+        - ""

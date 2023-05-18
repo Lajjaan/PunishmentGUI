@@ -32,22 +32,8 @@ public class ItemUtils {
         return itemStack;
     }
 
-    public static ItemStack createItem(Material material, int amount, String name, String lore, int data) {
-
-        ItemStack itemStack = new ItemStack(material, amount);
-        ItemMeta itemMeta = itemStack.getItemMeta();
-        itemMeta.setCustomModelData(data);
-        itemMeta.setDisplayName(TextUtils.color(name));
-        if (lore != null) {
-            itemMeta.setLore(Collections.singletonList(TextUtils.color(lore)));
-        }
-        itemStack.setItemMeta(itemMeta);
-
-        return itemStack;
-    }
-
     public static void filler(Material material, Inventory inventory) {
-        ItemStack fillerItem = createItem(material, 1, " ", "", 0);
+        ItemStack fillerItem = createItem(material, 1, " ", null, 0);
         for (int i = 0; i < inventory.getSize(); i++) {
             if (inventory.getItem(i) == null) {
                 inventory.setItem(i, fillerItem);
@@ -55,8 +41,8 @@ public class ItemUtils {
         }
     }
 
-    public static ItemStack getPlayerHead(Player player, String name) {
-        ItemStack head = createItem(Material.PLAYER_HEAD, 1, name, "", 0);
+    public static ItemStack getPlayerHead(Player player, String name, List<String> lore) {
+        ItemStack head = createItem(Material.PLAYER_HEAD, 1, name, lore, 0);
         SkullMeta meta = (SkullMeta) head.getItemMeta();
         meta.setOwningPlayer(player);
         head.setItemMeta(meta);
