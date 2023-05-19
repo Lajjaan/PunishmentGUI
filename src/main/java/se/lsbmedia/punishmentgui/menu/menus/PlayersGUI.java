@@ -12,22 +12,23 @@ public class PlayersGUI extends Menu {
 
     private final int MAX_ITEMS_PER_PAGE = 28;
     private int currentPage = 1;
-    private final String[] allPlayers;
+    // private final String[] allPlayers;
 
     public PlayersGUI(Player player, Player target) {
         super(player, target, "players-gui");
-        main.sendPluginMessage(player);
-        allPlayers = main.getAllPlayers();
+        // main.sendPluginMessage(player);
+        // allPlayers = main.getAllPlayers();
     }
 
     @Override
     protected void setItems() {
         super.setItems();
 
-        Player[] onlinePlayers = new Player[allPlayers.length];
-        for (int i = 0; i < allPlayers.length; i++) {
+        Player[] onlinePlayers = Bukkit.getOnlinePlayers().toArray(new Player[0]);
+        /* for (int i = 0; i < allPlayers.length; i++) {
             onlinePlayers[i] = Bukkit.getPlayerExact(allPlayers[i]);
         }
+         */
 
         int totalPages = (int) Math.ceil((double) onlinePlayers.length / MAX_ITEMS_PER_PAGE);
 

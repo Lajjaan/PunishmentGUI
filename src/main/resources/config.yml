@@ -6,7 +6,7 @@
 # types:
 # mute
 # ban
-# ipban
+# ip-ban
 # punish-gui
 # mute-gui
 # ban-gui
@@ -392,20 +392,6 @@ ip-ban-gui:
       type: back
       name: "&cTillbaka"
       material: BARRIER
-      amount: 1
-      lore:
-        - ""
-
-# PLAYERS MENU
-players-gui:
-  title: "&8| &b&lALL PLAYERS "
-  size: 18
-  items:
-    1:
-      slot: 0
-      type: close
-      name: "temp"
-      material: ENDER_PEARL
       amount: 1
       lore:
         - ""
