@@ -9,6 +9,9 @@ import java.util.List;
 public class TextUtils {
 
     public static String color(String message) {
+        if (message == null) {
+            return "text";
+        }
         return ChatColor.translateAlternateColorCodes('&', message);
     }
 
@@ -17,12 +20,12 @@ public class TextUtils {
         String[] placeholders = {"%player%", "%target%"};
         String[] replacements = {player.getName(), target.getName()};
 
-        if (textList == null) {
+        if (text != null) {
             for (int i = 0; i < placeholders.length; i++) {
                 text = text.replace(placeholders[i], replacements[i]);
             }
             return text;
-        } else {
+        } else if (textList != null) {
             List<String> replacedList = new ArrayList<>();
             for (String string : textList) {
                 for (int i = 0; i < placeholders.length; i++) {
@@ -31,6 +34,8 @@ public class TextUtils {
                 replacedList.add(string);
             }
             return replacedList;
+        } else {
+            return null;
         }
     }
 
